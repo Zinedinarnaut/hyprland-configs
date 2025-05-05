@@ -1,0 +1,231 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 38,
+    "spacing": 4,
+    "margin-top": 8,
+    "margin-left": 12,
+    "margin-right": 12,
+    "margin-bottom": 0,
+    "ipc": true,
+
+    "modules-left": [
+        "clock",
+        "custom/separator",
+        "custom/power",
+        "custom/separator",
+        "custom/nav-down",
+        "custom/separator",
+        "custom/nav-up",
+        "custom/separator",
+        "custom/volume",
+        "custom/separator",
+        "custom/location",
+        "custom/separator",
+        "custom/weather"
+    ],
+
+    "modules-center": [
+        "custom/reactor-status",
+        "custom/separator",
+        "hyprland/workspaces"
+    ],
+
+    "modules-right": [
+        "custom/shield",
+        "custom/separator",
+        "memory",
+        "custom/separator",
+        "cpu",
+        "custom/separator",
+        "custom/fans",
+        "custom/separator",
+        "network",
+        "custom/separator",
+        "custom/disk",
+        "custom/separator",
+        "custom/thrusters",
+        "custom/separator",
+        "custom/uptime",
+        "custom/separator",
+        "tray"
+    ],
+
+    "clock": {
+        "format": "[ 🕒 {:%H:%M %p} ]",
+        "format-alt": "[ 📅 {:%Y-%m-%d} ]",
+        "interval": 1,
+        "tooltip-format": "<tt><small>{calendar}</small></tt>",
+        "calendar": {
+            "mode": "year",
+            "mode-mon-col": 3,
+            "weeks-pos": "right",
+            "on-scroll": 1,
+            "format": {
+                "months": "<span color='#ffead3'><b>{}</b></span>",
+                "days": "<span color='#ecc6d9'>{}</span>",
+                "weeks": "<span color='#99ffdd'><b>W{}</b></span>",
+                "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
+                "today": "<span color='#ff6699'><b><u>{}</u></b></span>"
+            }
+        },
+        "actions": {
+            "on-click": "mode",
+            "on-click-right": "tz_up"
+        },
+        "tooltip": true
+    },
+
+    "memory": {
+        "format": "{}",
+        "interval": 1,
+        "exec": "~/.config/waybar/scripts/memory-status.sh",
+        "return-type": "json",
+        "tooltip": true
+    },
+
+    "cpu": {
+        "format": "{}",
+        "interval": 1,
+        "exec": "~/.config/waybar/scripts/cpu-status.sh",
+        "return-type": "json",
+        "tooltip": true
+    },
+
+    "network": {
+        "format-wifi": "[ 📡 COMMS {signalStrength}% ]",
+        "format-ethernet": "[ 🌐 CONN ]",
+        "format-disconnected": "[ ❌ OFF ]",
+        "tooltip-format": "{ifname} via {gwaddr}",
+        "tooltip-format-wifi": "{essid} ({signalStrength}%)",
+        "tooltip-format-ethernet": "{ifname}",
+        "tooltip-format-disconnected": "Disconnected",
+        "max-length": 50,
+        "on-click": "nm-connection-editor"
+    },
+
+    "custom/disk": {
+        "format": "{}",
+        "interval": 30,
+        "exec": "~/.config/waybar/scripts/disk-status.sh",
+        "return-type": "json",
+        "tooltip": true
+    },
+
+    "custom/power": {
+        "format": "[ ⏻ ]",
+        "tooltip": "Power Menu",
+        "on-click": "wlogout"
+    },
+
+    "custom/nav-down": {
+        "format": "[ ▼ ]",
+        "tooltip": "Previous Workspace",
+        "on-click": "hyprctl dispatch workspace -1"
+    },
+
+    "custom/nav-up": {
+        "format": "[ ▲ ]",
+        "tooltip": "Next Workspace",
+        "on-click": "hyprctl dispatch workspace +1"
+    },
+
+    "custom/volume": {
+        "format": "{}",
+        "exec": "~/.config/waybar/scripts/volume.sh",
+        "on-click": "pactl set-sink-volume @DEFAULT_SINK@ +5%",
+        "on-click-right": "pactl set-sink-volume @DEFAULT_SINK@ -5%",
+        "on-click-middle": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+        "interval": 1,
+        "return-type": "json",
+        "tooltip": true
+    },
+
+    "custom/location": {
+        "format": "[ 📍 {} Japan ]",
+        "exec": "echo ⚑",
+        "interval": 3600,
+        "tooltip": "Current Location"
+    },
+
+    "custom/reactor-status": {
+        "format": "{}",
+        "interval": 5,
+        "exec": "~/.config/waybar/scripts/waybar-reactor-status.sh",
+        "return-type": "json",
+        "tooltip": true
+    },
+
+    "custom/shield": {
+        "format": "{}",
+        "interval": 5,
+        "exec": "~/.config/waybar/scripts/waybar-shield-status.sh",
+        "return-type": "json",
+        "tooltip": true
+    },
+
+    "custom/thrusters": {
+        "format": "{}",
+        "interval": 5,
+        "exec": "~/.config/waybar/scripts/waybar-thrusters.sh",
+        "return-type": "json",
+        "tooltip": true
+    },
+
+    "custom/fans": {
+        "format": "{}",
+        "interval": 1,
+        "exec": "~/.config/waybar/scripts/waybar-fans.sh",
+        "return-type": "json",
+        "tooltip": true
+    },
+
+    "custom/uptime": {
+        "format": "{}",
+        "interval": 60,
+        "exec": "~/.config/waybar/scripts/waybar-uptime.sh",
+        "return-type": "json",
+        "tooltip": true
+    },
+
+    "custom/separator": {
+        "format": "",
+        "interval": "once",
+        "tooltip": false
+    },
+
+    "tray": {
+        "icon-size": 16,
+        "spacing": 10,
+        "show-passive-items": true
+    },
+
+    "custom/weather": {
+        "format": "{}",
+        "exec": "~/.config/waybar/scripts/waybar-weather.sh",
+        "interval": 600,
+        "return-type": "json",
+        "tooltip": true
+    },
+
+    "hyprland/workspaces": {
+        "format": "[{name}]",
+        "on-click": "activate",
+        "all-outputs": true,
+        "active-only": false,
+        "show-special": true,
+        "sort-by-number": true,
+        "persistent-workspaces": {
+            "1": [],
+            "2": [],
+            "3": [],
+            "4": [],
+            "5": [],
+            "6": [],
+            "7": [],
+            "8": [],
+            "9": [],
+            "10": []
+        }
+    }
+}

@@ -1,0 +1,408 @@
+/* =========================================
+   Sci-Fi Spaceship HUD Waybar Theme
+   GTK-Compatible CSS
+   ========================================= */
+
+/* Base Styles */
+* {
+  font-family: "JetBrainsMono Nerd Font";
+  font-size: 13px;
+  font-weight: bold;
+  border: none;
+  border-radius: 0;
+  min-height: 0;
+}
+
+/* Window Container */
+window#waybar {
+  background-color: transparent;
+}
+
+/* Main Bar */
+#waybar {
+  background-color: rgba(16, 20, 28, 0.92);
+  color: #8fbcbb;
+  margin: 6px 8px;
+  padding: 4px;
+}
+
+#waybar.empty,
+#waybar.tiled,
+#waybar.floating {
+  background-color: rgba(16, 20, 28, 0.92);
+}
+
+/* Common Module Styling */
+#clock,
+#cpu,
+#memory,
+#network,
+#custom-power,
+#custom-nav-down,
+#custom-nav-up,
+#custom-volume,
+#custom-location,
+#custom-reactor-status,
+#custom-shield,
+#custom-thrusters,
+#custom-disk,
+#custom-weather,
+#custom-fans,
+#custom-uptime,
+#tray {
+  padding: 0 10px;
+  margin: 4px 2px;
+  color: #81a1c1;
+  border: 1px solid rgba(48, 54, 61, 0.8);
+  background-color: rgba(30, 34, 42, 0.7);
+  border-radius: 4px;
+}
+
+/* Hover Effects - GTK Compatible */
+#clock:hover,
+#cpu:hover,
+#memory:hover,
+#network:hover,
+#custom-power:hover,
+#custom-nav-down:hover,
+#custom-nav-up:hover,
+#custom-volume:hover,
+#custom-location:hover,
+#custom-reactor-status:hover,
+#custom-shield:hover,
+#custom-thrusters:hover,
+#custom-disk:hover,
+#custom-weather:hover,
+#custom-fans:hover,
+#custom-uptime:hover,
+#tray:hover {
+  background-color: rgba(40, 44, 52, 0.9);
+  border-color: rgba(129, 161, 193, 0.6);
+  margin-top: 3px;
+  margin-bottom: 5px;
+}
+
+/* Special Modules Styling */
+
+/* Reactor Status - Central Element */
+#custom-reactor-status {
+  color: #8fbcbb;
+  background-color: rgba(30, 34, 42, 0.8);
+  border: 1px solid rgba(76, 86, 106, 0.8);
+  margin-right: 0;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  padding-right: 12px;
+  font-weight: bold;
+}
+
+/* Workspaces Styling */
+#workspaces {
+  margin-left: 0;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  padding: 0 4px;
+  background-color: rgba(35, 38, 45, 0.8);
+}
+
+#workspaces button {
+  padding: 0 6px;
+  background-color: rgba(30, 34, 42, 0.5);
+  color: #81a1c1;
+  border: 1px solid rgba(48, 54, 61, 0.8);
+  margin: 3px 2px;
+  border-radius: 3px;
+  font-weight: bold;
+  min-width: 20px;
+}
+
+#workspaces button.active {
+  background-color: rgba(129, 161, 193, 0.2);
+  color: #eceff4;
+  border-color: rgba(129, 161, 193, 0.6);
+  padding: 0 8px;
+  margin: 3px 1px;
+}
+
+#workspaces button.urgent {
+  background-color: rgba(191, 97, 106, 0.3);
+  color: #bf616a;
+  border-color: rgba(191, 97, 106, 0.6);
+}
+
+/* Separator Styling */
+#custom-separator {
+  color: transparent;
+  padding: 0;
+  margin: 0;
+  font-size: 12px;
+}
+
+/* Module-Specific Colors & Styling */
+#memory {
+  color: #d08770;
+  background-color: rgba(35, 38, 45, 0.8);
+  border-color: rgba(208, 135, 112, 0.4);
+}
+
+#cpu {
+  color: #ebcb8b;
+  background-color: rgba(35, 38, 45, 0.8);
+  border-color: rgba(235, 203, 139, 0.4);
+}
+
+#custom-disk {
+  color: #a3be8c;
+  background-color: rgba(35, 38, 45, 0.8);
+  border-color: rgba(163, 190, 140, 0.4);
+}
+
+#custom-shield {
+  color: #b48ead;
+  background-color: rgba(35, 38, 45, 0.8);
+  border-color: rgba(180, 142, 173, 0.4);
+}
+
+#custom-thrusters {
+  color: #88c0d0;
+  background-color: rgba(35, 38, 45, 0.8);
+  border-color: rgba(136, 192, 208, 0.4);
+}
+
+/* Fans Module Styling */
+#custom-fans {
+  color: #5e81ac;
+  background-color: rgba(35, 38, 45, 0.8);
+  border-color: rgba(94, 129, 172, 0.4);
+}
+
+/* Uptime Module Styling */
+#custom-uptime {
+  color: #5e81ac;
+  background-color: rgba(35, 38, 45, 0.8);
+  border-color: rgba(94, 129, 172, 0.4);
+}
+
+#custom-weather {
+  color: #ebcb8b;
+  background-color: rgba(35, 38, 45, 0.8);
+  border-color: rgba(235, 203, 139, 0.4);
+}
+
+/* Volume Module States */
+#custom-volume.muted {
+  color: #4c566a;
+  border-color: rgba(76, 86, 106, 0.6);
+  background-color: rgba(35, 38, 45, 0.8);
+}
+
+#custom-volume.low {
+  color: #81a1c1;
+  background-color: rgba(35, 38, 45, 0.8);
+  border-color: rgba(129, 161, 193, 0.4);
+}
+
+#custom-volume.medium {
+  color: #ebcb8b;
+  background-color: rgba(35, 38, 45, 0.8);
+  border-color: rgba(235, 203, 139, 0.4);
+}
+
+#custom-volume.high {
+  color: #a3be8c;
+  background-color: rgba(35, 38, 45, 0.8);
+  border-color: rgba(163, 190, 140, 0.4);
+}
+
+#custom-volume.critical {
+  color: #bf616a;
+  background-color: rgba(35, 38, 45, 0.8);
+  border-color: rgba(191, 97, 106, 0.4);
+}
+
+/* Warning States */
+#cpu.warning,
+#memory.warning,
+#custom-fans.warning {
+  color: #ebcb8b;
+  border-color: rgba(235, 203, 139, 0.5);
+  background-color: rgba(35, 38, 45, 0.8);
+}
+
+/* Critical States */
+#cpu.critical,
+#memory.critical,
+#custom-fans.critical {
+  color: #bf616a;
+  border-color: rgba(191, 97, 106, 0.5);
+  background-color: rgba(35, 38, 45, 0.8);
+}
+
+/* Network States */
+#network.disconnected {
+  color: #bf616a;
+  border-color: rgba(191, 97, 106, 0.5);
+  background-color: rgba(35, 38, 45, 0.8);
+}
+
+/* Clock Styling */
+#clock {
+  background-color: rgba(35, 38, 45, 0.8);
+  border-color: rgba(129, 161, 193, 0.4);
+  font-weight: bold;
+}
+
+/* Tray Styling */
+#tray {
+  background-color: rgba(35, 38, 45, 0.8);
+  border-color: rgba(129, 161, 193, 0.4);
+  padding: 0 8px;
+}
+
+#tray > .passive {
+  -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+  -gtk-icon-effect: highlight;
+  background-color: rgba(191, 97, 106, 0.2);
+  border-radius: 3px;
+}
+
+/* Red Alert Mode - Toggle with Script */
+.red-alert #waybar {
+  background-color: rgba(191, 97, 106, 0.15);
+  border-color: rgba(191, 97, 106, 0.6);
+}
+
+.red-alert #clock,
+.red-alert #cpu,
+.red-alert #memory,
+.red-alert #network,
+.red-alert #custom-power,
+.red-alert #custom-nav-down,
+.red-alert #custom-nav-up,
+.red-alert #custom-volume,
+.red-alert #custom-location,
+.red-alert #custom-reactor-status,
+.red-alert #custom-shield,
+.red-alert #custom-thrusters,
+.red-alert #custom-disk,
+.red-alert #custom-weather,
+.red-alert #custom-fans,
+.red-alert #custom-uptime,
+.red-alert #tray,
+.red-alert #workspaces {
+  color: #bf616a;
+  border-color: rgba(191, 97, 106, 0.5);
+  background-color: rgba(35, 38, 45, 0.8);
+}
+
+/* Amber Mode - Alternative Color Scheme */
+.amber-mode #waybar {
+  background-color: rgba(35, 30, 25, 0.9);
+  border-color: rgba(208, 135, 112, 0.6);
+}
+
+.amber-mode #clock,
+.amber-mode #cpu,
+.amber-mode #memory,
+.amber-mode #network,
+.amber-mode #custom-power,
+.amber-mode #custom-nav-down,
+.amber-mode #custom-nav-up,
+.amber-mode #custom-volume,
+.amber-mode #custom-location,
+.amber-mode #custom-reactor-status,
+.amber-mode #custom-shield,
+.amber-mode #custom-thrusters,
+.amber-mode #custom-disk,
+.amber-mode #custom-weather,
+.amber-mode #custom-fans,
+.amber-mode #custom-uptime,
+.amber-mode #tray,
+.amber-mode #workspaces {
+  color: #d08770;
+  border-color: rgba(208, 135, 112, 0.5);
+  background-color: rgba(35, 30, 25, 0.8);
+}
+
+/* Make the bar float/hover instead of being stuck to edges */
+#waybar {
+  margin: 8px 12px;
+}
+
+/* Ensure consistent spacing between elements */
+#clock,
+#cpu,
+#memory,
+#network,
+#custom-power,
+#custom-nav-down,
+#custom-nav-up,
+#custom-volume,
+#custom-location,
+#custom-reactor-status,
+#custom-shield,
+#custom-thrusters,
+#custom-disk,
+#custom-weather,
+#custom-fans,
+#custom-uptime,
+#tray {
+  margin: 4px 3px;
+}
+
+/* Hyprland Workspaces Styling */
+#workspaces,
+#hyprland-workspaces {
+  margin-left: 0;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  padding: 0 4px;
+  background-color: rgba(35, 38, 45, 0.8);
+}
+
+#hyprland-workspaces button {
+  padding: 0 6px;
+  background-color: rgba(30, 34, 42, 0.5);
+  color: #81a1c1;
+  border: 1px solid rgba(48, 54, 61, 0.8);
+  margin: 3px 2px;
+  border-radius: 3px;
+  font-weight: bold;
+  min-width: 20px;
+}
+
+#hyprland-workspaces button.active {
+  background-color: rgba(129, 161, 193, 0.2);
+  color: #eceff4;
+  border-color: rgba(129, 161, 193, 0.6);
+  padding: 0 8px;
+  margin: 3px 1px;
+}
+
+#hyprland-workspaces button.urgent {
+  background-color: rgba(191, 97, 106, 0.3);
+  color: #bf616a;
+  border-color: rgba(191, 97, 106, 0.6);
+}
+
+/* Enhanced Glow Effects */
+#custom-reactor-status,
+#custom-shield,
+#custom-thrusters {
+  box-shadow: inset 0 0 3px rgba(136, 192, 208, 0.3);
+}
+
+#custom-reactor-status.warning,
+#custom-shield.warning,
+#custom-thrusters.warning {
+  box-shadow: inset 0 0 3px rgba(235, 203, 139, 0.3);
+}
+
+#custom-reactor-status.critical,
+#custom-shield.critical,
+#custom-thrusters.critical {
+  box-shadow: inset 0 0 3px rgba(191, 97, 106, 0.3);
+}
